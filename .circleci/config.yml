@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: docker:17.06.0-git
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Build Docker image
+          command: docker build -t zeromic/openid-mock:master .
+      - deploy:
+          name: Tag docker images
+          command: docker tag zeromic/openid-mock:master docker.io/zeromic/openid-mock:master
+      - deploy:
+          name: Login to Docker Hub
+          command: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      - deploy:
+          name: Push docker images
+          command: docker push zeromic/openid-mock:master
