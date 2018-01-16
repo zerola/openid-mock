@@ -1,4 +1,4 @@
 {
-  "issuer": "https://auth.dave.dbg-devops.com/auth/realms/DAVe",
+  "issuer": "https://auth.risk.dev.dbgcloud.io/auth/realms/DAVe",
   "jwks_uri": "http://openid.mock/auth/realms/DAVe/protocol/openid-connect/certs"
 }
